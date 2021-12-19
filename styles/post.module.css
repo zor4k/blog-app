@@ -1,0 +1,56 @@
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .container {
+        margin: 1.5rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .container {
+        margin: auto;
+        width: 560px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .container {
+        margin: auto;
+        width: 660px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .container {
+        margin: auto;
+        width: 760px;
+    }
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.author{
+    margin-top: -1rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+.date{
+    font-style: italic;
+}

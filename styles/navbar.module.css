@@ -1,20 +1,61 @@
-.navbar{
-    height: 50px;
-    padding: 10px;
-    background-color: blue;
-    color : white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .navbar{
+        width: 100vw;
+    }
 }
 
-.navbar ul {
-    display: flex;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .navbar{
+        width: 100vw;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .navbar{
+        margin: auto;
+        width: 680px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .navbar {
+
+        margin: auto;
+        width:780px; 
+    }
+}
+
+.navbar {
+    display:flex;
+    background-color: blue;
+    color:white;
+    position:sticky;
+    top:0;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.navbar  ul {
+    list-style-type:none;
+    display:flex;
+    gap: 60px; 
+}
+.navbar  li {
+    flex:1;
+    display:flex;
     justify-content: center;
     align-items: center;
-    list-style: none;
+
 }
 
-.navbar ul li a{
-    margin: 5px 15px;
+.navbar li:hover {
+    font-weight: 700;
 }

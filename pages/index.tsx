@@ -1,26 +1,37 @@
-import type { NextPage } from 'next'
-import Layout from '../components/Layout'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { FC } from 'react'
-
-interface Props {
-  Component : FC;
-  pageProps: object;
-}
+import type { NextPage , GetServerSideProps } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import Posts,{IProps, IPost} from '../components/Posts';
+import styles from "../styles/index.module.css";
 
 
-const Home: NextPage<Props> = (  { Component, pageProps} : { Component: object, pageProps: object})=>{
-
-
+const {BASE_URL} = process.env;
+const Home: NextPage<IProps> = (props: IProps) => {
   return (
     <div className={styles.container}>
-      <Layout>
-
-      </Layout>
-
-    </div> 
+      <h1> Posts </h1>
+      <Posts { ...props }/>
+    </div>
   )
 }
 
-export default Home
+
+export const getServerSideProps : GetServerSideProps<IProps> = async () =>{
+  let posts;
+  try{
+      const response = await fetch(`http://${BASE_URL}/api/blog/`,
+      {
+          method: 'GET',
+      });
+      console.log(response);
+      posts= await response.json();
+  } catch (err:any){
+      console.log(err.message);
+  }
+
+  return{
+      props : { posts }
+  }
+}
+
+export default Home;
