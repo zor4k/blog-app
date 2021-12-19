@@ -23,7 +23,6 @@ export const getServerSideProps : GetServerSideProps<IProps> = async () =>{
       {
           method: 'GET',
       });
-      console.log(response);
       posts= await response.json();
   } catch (err:any){
       console.log(err.message);

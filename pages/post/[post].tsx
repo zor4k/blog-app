@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { isContext } from "vm";
 const { BASE_URL } = process.env;
 import styles from "../../styles/post.module.css";
+import dayjs from 'dayjs';
 
 interface IProps{
    post: IPostObj
@@ -31,7 +32,7 @@ const PostPage: NextPage<IProps> = ({ post }: IProps) =>{
                 <h1 className={styles.title}>{(post.title).replace('-',' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))}</h1>
                 <h2 className={styles.author}>by {post.userName} on 
                     <span className={styles.date}>
-                         {" "+(new Date(post.datePosted)).toDateString().slice(3)  }
+                         {" "+( dayjs(post.datePosted).format("MMMM D, YYYY") ) }
                     </span>
                 </h2>
                 {ReactHtmlParser(post.content)}

@@ -2,6 +2,7 @@
 import { GetServerSideProps } from 'next';
 import React,  { } from 'react';
 import styles from "../styles/index.module.css";
+import dayjs from 'dayjs';
 
 export interface IPost{
     title: string,
@@ -28,7 +29,7 @@ function Posts({ posts } : IProps ){
                                 <a href={`/post/${post.title}`}> {(post.title).replace('-',' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))} </a>
                             </h2>
                             <h3 className={styles.date}>
-                                <span>{"published on"+(new Date(post.datePosted)).toDateString().slice(3)}</span>
+                                <span>{"published on "+(dayjs(post.datePosted).format("MMMM D, YYYY"))}</span>
                             </h3>
                             
                         </>
