@@ -26,6 +26,7 @@ const LoginForm = (props: any)=>{
             }).then((responseJson) => {
                 // TODO handle JWT token here
                 alert("successful login!");
+                window.sessionStorage.setItem('my_blog_token', responseJson.token);
                 console.log(responseJson) ;
             })
             .catch( err => alert(err));

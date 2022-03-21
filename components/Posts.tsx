@@ -26,7 +26,7 @@ function Posts({ posts } : IProps ){
                     return( 
                         <>
                             <h2 className={styles.title} key={post.id}> 
-                                <a href={`/post/${post.title}`}> {(post.title).replace('-',' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))} </a>
+                                <a href={`/post/${post.title}`}> {(post.title).replace( new RegExp('-','g' ),' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))} </a>
                             </h2>
                             <h3 className={styles.date}>
                                 <span>{"published on "+(dayjs(post.datePosted).format("MMMM D, YYYY"))}</span>

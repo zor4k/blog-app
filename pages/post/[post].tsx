@@ -29,7 +29,7 @@ const PostPage: NextPage<IProps> = ({ post }: IProps) =>{
     return(
         <div className={styles.container}>
             <div className={styles.column}>
-                <h1 className={styles.title}>{(post.title).replace('-',' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))}</h1>
+                <h1 className={styles.title}>{(post.title).replace(new RegExp('\-','g'),' ').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))}</h1>
                 <h2 className={styles.author}>by {post.userName} on 
                     <span className={styles.date}>
                          {" "+( dayjs(post.datePosted).format("MMMM D, YYYY") ) }

@@ -53,9 +53,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
 
 }
 
 .navbar li:hover {
-    font-weight: 700;
+    color: #e2e2fe;
 }
